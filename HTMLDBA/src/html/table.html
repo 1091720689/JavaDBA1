@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表格</title>
+</head>
+<body>
+<!--表格标签-->
+<table border="1" cellspacing="0" width="300" align="center">
+    <!--表格的头部-->
+    <thead>
+    <tr>
+        <th>班级</th>
+        <th>编号</th>
+        <th>姓名</th>
+        <th>成绩</th>
+    </tr>
+    </thead>
+    <!--表格的身体-->
+    <tbody align="center">
+    <!--tr行标签-->
+    <tr>
+        <td>一</td>
+        <td>1</td>
+        <td>张三</td>
+        <td>99</td>
+    </tr>
+    <tr>
+        <td>二</td>
+        <td>2</td>
+        <td>李四</td>
+        <td>88</td>
+    </tr>
+    <tr>
+        <!--rowpan 合并行，2表示合并2行-->
+        <td rowspan="2">三</td>
+        <td>3</td>
+        <td>王五</td>
+        <td>77</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>赵六</td>
+        <td>66</td>
+    </tr>
+
+    <tr>
+        <td>备注</td>
+        <!--colspan合并列-->
+        <td colspan="3">啊啊啊啊</td>
+
+    </tr>
+
+    </tbody>
+</table>
+</body>
+</html>

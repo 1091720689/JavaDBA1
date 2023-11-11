@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--内部样式表-->
+    <style type="text/css" rel="stylesheet">
+        /*
+        CSS语法格式：
+        选择器{
+            属性1:属性值1;
+            属性2：属性值2;
+            ....
+            }
+        */
+        div{
+            height: 50px;
+        }
+    </style>
+    <!--引入外部样式表-->
+    <link rel="stylesheet" href="/JavaWebProject/day01HTML/css/mystyle.css">
+
+</head>
+<!--
+CSS层叠样式表：用于美化页面
+CSS引入方式：
+1.内联样式表，在标签内使用style属性.与HTML耦合度高
+2.内部样式表
+3.外部样式表
+-->
+<body>
+<!--内联样式表-->
+    <p style="color: green;font-size: 60px">这是一个段落</p>
+    <div style="border: 1px solid red;background-color: yellow">
+        hello
+    </div>
+    <span>hello你好</span>
+</body>
+</html>

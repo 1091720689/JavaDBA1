@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS选择器</title>
+    <style type="text/css">
+        /*语法格式：
+        选择器{属性:属性值;属性:属性值;....}
+        选择器的分类：
+        1.元素选择器
+        2.id选择器
+        3.class类选择器
+        4.组合选择器
+        5.后代选择器
+
+        */
+        /*元素选择器*/
+        p {
+            color: red;
+        }
+
+        /*id选择器*/
+        #p1 {
+            color: green;
+        }
+
+        /*类选择器*/
+        .one {
+            font-size: 30px;
+        }
+
+        /*组合选择器*/
+        #p1, span {
+            background-color: yellow;
+        }
+
+        /*后代选择器*/
+        div p {
+            color: brown;
+        }
+        /*子选择器*/
+        #div1>p {
+            font-size: 50px;
+        }
+        /*兄弟选择器*/
+        #p1+p{
+           background-color: blueviolet;
+        }
+
+        /*伪选择器*/
+        a:link{
+            color: black;
+        }
+        a:visited{
+            color: #CCCCCC;
+        }
+        a:hover{
+            color: red;
+        }
+        a:active{
+            color: yellow;
+        }
+
+        a{
+            text-decoration: none;/*去除下划线*/
+        }
+    </style>
+
+</head>
+<body>
+<p id="p1">这是一个段落1</p>
+<p>这是一个段落2</p>
+
+<p class="one">这是一个段落3</p>
+<p class="one">这是一个段落4</p>
+<div class="one">这是一个div</div>
+<span>hello span1</span>
+<span>hello span2</span>
+<div id="div1">
+    <p>这是div内部的p元素</p>
+    <div>
+        <p>div内部的p元素</p>
+    </div>
+</div>
+
+
+<a href="https://www.jd.com" target="_blank">美女2</a>
+</body>
+</html>
