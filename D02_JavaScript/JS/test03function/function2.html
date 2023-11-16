@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义函数</title>
+</head>
+<body>
+<button id="btn">按钮</button>
+<script>
+    /*定义函数：方式一*/
+    function add(a, b) {
+        var c = a + b;
+        // console.log(c);
+        return c;//返回数据
+    }
+    //调用函数
+    // var result = add(11,22);
+    // alert(result)
+
+    //定义函数方式二：
+   var fun= function (){
+        alert("匿名函数");
+    }
+    //调用函数
+    fun();
+
+    // document.getElementById("btn").onclick=function () {
+    //
+    // }
+
+
+</script>
+</body>
+</html>

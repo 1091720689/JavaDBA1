@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VUE入门案例</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button @click="fun" >按钮</button>
+        <p>{{msg}}</p>
+        <p>{{msg}}</p>
+    </div>
+
+    <script>
+        /*创建Vue对象，通过构造器传入一个JSON对象*/
+        new Vue({
+            el:"#app",
+            data:{
+                msg:"hello VUE!"
+            },
+            methods:{
+                fun:function () {
+                    this.msg="你好 VUE";
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>

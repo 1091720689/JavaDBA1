@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //当页面加载完毕后执行此函数
+        window.onload = function () {
+            // var btn = document.getElementById("btn");
+            // alert(btn.innerText);
+        }
+
+        //定义一个函数
+        function hello(a) {
+            console.log("hello ....");
+            a.remove()
+        }
+
+
+    </script>
+</head>
+<body>
+
+<button id="btn" onclick="hello()">按钮</button>  //属性onclick表示绑定点击事件，值为触发点击事件是要执行的函数
+<button id="btn2" onclick="hello(this)">按钮</button>
+<br/>
+用户名：<input type="text" id="uname" value=""/><br/>
+密码：<input type="password" id="pwd" value=""/>
+
+<div id="div1" style="background-color: red;width: 300px;height: 300px"></div>
+
+<script>
+    // let ele = document.getElementById("btn");
+    //点击时执行函数
+    // ele.onclick = function () {
+    //     alert("我被点击了...")
+    // }
+    //函数外this是widow对象
+    // console.log(this);
+    //失去焦点时执行函数
+    document.getElementById("uname").onblur = function () {
+        console.log("你移走了光标...");
+        //this表示当前对象，事件绑定在谁身上，this表示谁
+        console.log(this);
+        console.log(this.value);
+    }
+    //当内容改变时触发
+    let pwd = document.getElementById("pwd");
+    pwd.onchange = function () {
+        console.log(this.value);
+    }
+
+    //当键盘按键按下时
+    pwd.onkeydown = function () {
+        console.log("keydown");
+    }
+    //当键盘按键弹起时
+    pwd.onkeyup = function () {
+        console.log("keyup");
+    }
+    //当键盘按键按下再弹起时执行一次
+    pwd.onkeypress = function () {
+        console.log("keypress");
+    }
+
+    //获取div
+    let div1 = document.getElementById("div1");
+    div1.onmousedown = function () {
+        console.log("down");
+    }
+    div1.onmouseup = function () {
+        console.log("up");
+    }
+    div1.onmouseenter = function () {
+        console.log("enter");
+    }
+    div1.onmouseleave = function () {
+        console.log("leave");
+    }
+    //鼠标滑过时执行
+    div1.onmouseover = function () {
+        console.log("over");
+    }
+
+
+</script>
+
+</body>
+</html>

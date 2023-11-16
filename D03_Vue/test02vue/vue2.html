@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VUE入门案例</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <button @click="fun">按钮</button>
+    <!--{{数据模型的属性名}} 插值表达式，只替换插值表达式的内容-->
+    <p>AAAA{{msg}}</p>
+    <!-- 绑定文本,整个文本对象被替换，不会解析html标签-->
+    <p v-text="msg">aaaa</p>
+    <!--绑定html文本，会解析html标签-->
+    <p v-html="msg"></p>
+    <!--绑定属性：v-bind:属性名=数据模型key-->
+    单向绑定<input type="text" v-bind:value="msg"/><br/>
+    <!--简化写法-->
+    单向绑定 <input type="text" :value="msg"/><br/>
+    <!--v-model双向绑定-->
+    双向绑定<input type="text" v-model="msg"/><br/>
+    <img :src="imgPath" :style="mystyle"/>
+</div>
+
+<script>
+    /*创建Vue对象，通过构造器传入一个JSON对象*/
+    new Vue({
+        el: "#app",
+        data: {
+            msg: "<h1>hello VUE!</h1>",
+            imgPath: "../imgs/girl.jpg",
+            mystyle: {
+                width: "300px",
+                height: "300px"
+            }
+        },
+        methods: {
+            fun: function () {
+                this.msg = "你好 VUE";
+            }
+        }
+    });
+
+</script>
+</body>
+</html>

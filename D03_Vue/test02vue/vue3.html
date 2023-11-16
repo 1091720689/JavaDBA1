@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>条件和列表渲染</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <button @click="change">按钮</button>
+    <!--v-if条件渲染-->
+    <p v-if="flag">真</p><!--当flag值为true显示此标签，否则不显示-->
+    <p v-else="flag">假</p><!--当flag值为false显示此标签，否则不显示-->
+    <!--v-show条件渲染-->
+    <p v-show="flag">show</p><!--当flag值为true显示此标签，否则不显示-->
+
+    <!--v-for渲染列表-->
+    <!--语法：v-for="(元素变量名,index) in 数组" ，遍历数组获取每个元素，再使用插值表达式获取每个元素的值{{元素变量名}}-->
+    <ul>
+        <li v-for="(city,index) in citys">{{index+1}}{{city}}</li>
+    </ul>
+
+    <!--把对象数组渲染到表格中-->
+    <table border="1" cellspacing="0" width="300px">
+        <tr><th>学号</th><th>姓名</th><th>专业</th></tr>
+        <tr v-for="stu in students">
+            <td>{{stu.id}}</td>
+            <td>{{stu.name}}</td>
+            <td>{{stu.major}}</td>
+        </tr>
+    </table>
+</div>
+
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            flag: false,
+            citys:["北京","上海","深圳"],
+            students:[
+                {
+                    id:102,
+                    name:"tom",
+                    major:"java"
+                },
+                {
+                    id:112,
+                    name:"jack",
+                    major:"java"
+                },
+                {
+                    id:126,
+                    name:"rose",
+                    major:"html"
+                }
+            ]
+        },
+        methods: {
+            change: function () {
+                this.flag = !this.flag;
+            }
+        }
+    });
+
+</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>正则表达式</title>
+</head>
+<body>
+<script>
+    /*正则表达式：代表了一种规则的一个表达式，可以用来验证字符串是否满足这个规则。*/
+    var a="a";
+    // var reg=new RegExp("");
+    var reg=/^[a-f][0-9]{5,10}$/;//这个正则表达式表示：第一个位置是a-f的一个字符，后面是5到10个数组组成。
+    var result = reg.test(a);
+    alert(result);
+</script>
+</body>
+</html>

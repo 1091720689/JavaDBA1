@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>阻止默认事件和事件传播</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <div id="div1" style="border: 1px solid red">
+        <a id="a1" href="http://www.baidu.com">跳转页面</a>
+    </div>
+
+    <form action="vue.html">
+        用户名： <input type="text">
+        <input id="sub" type="submit" value="提交">
+    </form>
+
+
+    <!--原生js阻止事件的默认行为-->
+    <script>
+        document.getElementById("a1").onclick = function (e) {//点击这个超链接时会先执行此函数，然后才会继续跳转页面
+            alert("点击了超链接");
+            e.preventDefault();//阻止事件默认行为，即阻止了默认页面跳转行为
+            e.stopPropagation();//阻止事件传播，事件冒泡
+        }
+
+        document.getElementById("sub").onclick = function () {
+            alert("确定要提交？");
+            event.preventDefault();//阻止表单提交
+        }
+    </script>
+
+    <script>
+        document.getElementById("div1").onclick=function () {
+            alert("div1被点击了。。");
+        }
+    </script>
+</div>
+</body>
+</html>

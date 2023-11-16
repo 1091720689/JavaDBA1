@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据类型与变量</title>
+</head>
+<body>
+<script>
+    var a = 10.1;
+    // alert(a);
+    // alert(typeof a);//number
+
+    var b = "hello";
+    // alert(b);
+    // alert(typeof b);//string
+
+    // var c = true;
+    // alert(c);
+    // alert(typeof c);//boolean
+    // var d;
+    // alert(d);//undefined
+    // alert(typeof d);//undefined
+    var c=undefined;
+    var c=null;
+    //false,0,null,"",undefined,NaN都可以自动转换为boolean类型的false，除此之外都为true
+    var x=a-"abc";//NaN
+    alert(x);
+    alert(typeof x);
+    if(x){
+        alert("真");
+    }else{
+        alert("假")
+    }
+
+    // let m;
+    // let m;
+</script>
+</body>
+</html>

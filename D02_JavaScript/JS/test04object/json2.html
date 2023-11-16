@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var jsonArr=[
+        {
+            id: 101,
+            name: "tom",
+            age: 18
+        },
+        {
+            id: 102,
+            name: "jack",
+            age: 20
+        },
+        {
+            id: 103,
+            name: "rose",
+            age: 19
+        }
+    ]
+
+    //获取json的数据
+    // console.log(jsonArr[0].name);
+    for(var obj of jsonArr){
+        console.log(obj.id + "," + obj.name + "," + obj.age);
+    }
+    console.log("----------------------------------")
+    //创建JSON对象
+    var jsonObj ={
+        id:100,
+        name:"张三",
+        age:20,
+        favor:["学习","睡觉","打游戏"],
+        computer:[
+            {
+                brand:"联想",
+                price:5000
+            },
+            {
+                brand:"华硕",
+                price: 6000
+            }
+        ]
+    }
+    //访问JSON对象的数据
+    console.log(jsonObj.favor[1]);
+    console.log(jsonObj.computer[1].price);
+    console.log("----------------------------------")
+    //JSON对象转字符串
+    var str = JSON.stringify(jsonObj);
+    console.log(jsonObj);
+    console.log(typeof jsonObj);
+    console.log(str);
+    console.log(typeof str);
+
+    //JSON格式的字符串
+    var str2="{\"id\":123,\"name\":\"李四\",\"age\":18}";
+    console.log("----------------------------------");
+    //JSON格式的字符串转JSON对象
+    var obj2 = JSON.parse(str2);
+    console.log(obj2);
+
+</script>
+
+</body>
+</html>

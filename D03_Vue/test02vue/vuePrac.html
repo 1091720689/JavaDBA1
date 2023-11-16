@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VUE练习</title>
+    <script src="../js/vue.js"></script>
+    <style>
+        table, tr, td {
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        table {
+            width: 400px;
+        }
+
+        form {
+            text-align: center;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <table border="1" cellspacing="0">
+        <tr>
+            <th>学号</th>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>专业</th>
+            <th>操作</th>
+        </tr>
+        <tr v-for="(stu,index) in stuList">
+            <td>{{stu.id}}</td>
+            <td>{{stu.name}}</td>
+            <td>{{stu.age}}</td>
+            <td>{{stu.major}}</td>
+            <td>
+                <button @click="delStu(index)">删除{{index}}</button>
+            </td>
+        </tr>
+    </table>
+
+    <form>
+        学号<input type="text" v-model="stu.id"><br/>
+        姓名<input type="text" v-model="stu.name"><br/>
+        年龄<input type="text" v-model="stu.age"><br/>
+        专业<input type="text" v-model="stu.major"><br/>
+        <input type="submit" value="添加数据" @click.prevent="addStu">
+    </form>
+</div>
+</body>
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            stu: {},
+            stuList: [
+                {
+                    id: 101,
+                    name: "张三",
+                    age: 18,
+                    major: "JAVA"
+                },
+                {
+                    id: 111,
+                    name: "张三丰",
+                    age: 28,
+                    major: "JAVA"
+                },
+                {
+                    id: 121,
+                    name: "马三立",
+                    age: 19,
+                    major: "HTML"
+                }
+            ]
+        },
+        methods: {
+            addStu: function () {
+                this.stuList.push(this.stu);//把与表单中双向绑定的stu对象添加到List中，最后显示表格中
+                this.stu = {}
+            },
+            delStu: function (a) {
+                console.log(a);
+                //删除数组的元素，从第一个参数指定的位置开始，第二个参数是删除元素个数
+                this.stuList.splice(a, 1)
+            }
+        }
+    })
+</script>
+</html>

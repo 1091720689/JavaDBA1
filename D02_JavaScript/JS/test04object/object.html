@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js对象的创建与访问</title>
+</head>
+<body>
+
+<script>
+    /*创建对象*/
+    var obj = new Object();
+    obj.id = 1;
+    obj.name = "tom";
+    obj.gender = "男"
+    obj.eat = function () {
+        console.log("吃饭");
+    }
+    //访问对象
+    console.log(obj.id);
+    console.log(obj.name);
+    console.log(obj.gender);
+    obj.eat();
+
+    console.log("------------------");
+    //创建方式二：使用{}
+    var obj2={
+        "id":2,
+        "name":"jack",
+        "gender":"男",
+        "eat":function () {
+            console.log("吃饭。。。");
+        }
+    }
+
+    console.log(obj2.id);
+    console.log(obj2.name);
+    console.log(obj2.gender);
+    obj2.eat();
+</script>
+
+</body>
+</html>

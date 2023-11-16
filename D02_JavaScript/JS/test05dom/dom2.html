@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM操作2</title>
+
+    <style>
+        .red{
+            color:red;
+        }
+    </style>
+
+</head>
+<body>
+<ul id="list" >
+    <li>北京</li>
+    <li>上海</li>
+    <li>深圳</li>
+</ul>
+
+<button id="add">添加</button>
+<button id="del">删除</button>
+<button id="change">修改</button>
+<button id="changeColor">修改颜色</button>
+<script>
+    let btn = document.getElementById("add");
+    btn.onclick=function () {
+        //获取ul元素对象
+        let ul = document.getElementById("list");
+        //创建一个新节点
+        let li1 = document.createElement("li");
+        li1.innerText="广州";//给li1节点添加文本内容
+        console.log(li1);
+        // ul.appendChild(li1);//把li1添加到ul中尾部
+        let firstChild = ul.firstElementChild;
+        ul.insertBefore(li1,firstChild);//在指定节点前插入新节点元素，
+    }
+
+    document.getElementById("del").onclick=function () {
+        let ul = document.getElementById("list");
+        let lastElementChild = ul.lastElementChild;//获取最后一个子元素
+        lastElementChild.remove();//删除最后一个
+    }
+
+    document.getElementById("change").onclick=function () {
+        let ul = document.getElementById("list");
+        // var firstChild = ul.firstElementChild;
+        //创建一个新节点
+        let li1 = document.createElement("li");
+        li1.innerText="广州";//给li1节点添加文本内容
+
+        let lastChild = ul.lastElementChild;
+        ul.replaceChild(li1,lastChild);//替换：使用新节点替换旧节点
+    }
+
+    document.getElementById("changeColor").onclick=function () {
+        let ul = document.getElementById("list");
+        // let attr = document.createAttribute("class");//创建一个属性
+        // let attr = ul.getAttribute("class");//获取class属性值
+        // let attr = ul.getAttributeNode("class");//获取class属性对象
+        // console.log(attr);
+        // attr.value = "red";//给属性设置值
+
+        //给ui设置一个class属性，属性值为red
+        ul.setAttribute("class", "red");
+    }
+</script>
+
+</body>
+</html>

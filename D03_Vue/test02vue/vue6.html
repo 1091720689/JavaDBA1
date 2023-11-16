@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>属性侦听</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model="msg" @change="changeText"><br>
+    <input type="text" v-model="msg" >
+</div>
+</body>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            msg:"hello"
+        },
+        methods:{
+            changeText:function () {
+                console.log(this.msg);
+            }
+        },
+        watch: {
+            /*监听msg的变化，触发函数*/
+            msg:function (value) {
+                console.log(value + "------" + this.msg);
+            }
+        }
+    });
+</script>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VUE生命周期(了解)</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <button @click="change">更新</button>
+    <p>{{msg}}</p>
+</div>
+</body>
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            msg: "hello"
+        },
+        methods: {
+            change: function () {
+                this.msg = "哈哈哈哈";
+            }
+        },
+        /*钩子函数：初始化对象数据模型之前调用*/
+        beforeCreate: function () {
+            alert("beforeCreate");
+        },
+        created: function () {
+            alert("created");
+        },
+        beforeMount: function () {
+            alert("beforeMount");
+        },
+        mounted: function () {
+            alert("mounted");
+        },
+        beforeUpdate: function () {
+            alert("beforeUpdate");
+        },
+        updated: function () {
+            alert("Updated");
+        },
+        beforeDestroy: function () {
+            alert("beforeDestroy");
+        },
+        destroyed: function () {
+            alert("destroyed");
+        }
+
+    })
+</script>
+</html>

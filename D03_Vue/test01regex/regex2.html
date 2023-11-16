@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>正则表达式练习</title>
+</head>
+<body>
+用户名：<input type="text" id="uname" onchange="checkName(this)">
+
+<script>
+    function checkName(obj) {
+        // let uname = document.getElementById("uname");
+        console.log(obj.value);
+        //定义正则表达式
+        var reg =/^[a-zA-Z_]\w{3,6}$/;//第一位是大小写英文字符，后面是3到6位字符（大小写英文字符或数字或_）
+        //验证用户名是否合法
+        if (reg.test(obj.value.trim())) {
+            alert("合法")
+        }else{
+            alert("不合法")
+        }
+
+
+    }
+
+</script>
+
+</body>
+</html>
