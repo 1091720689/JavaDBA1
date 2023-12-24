@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>尚硅谷会员注册页面</title>
+    <link type="text/css" rel="stylesheet" href="../../static/css/style.css"/>
+    <link rel="stylesheet" href="../../static/css/register.css"/>
+    <style type="text/css">
+        .login_form {
+            height: 420px;
+            margin-top: 25px;
+        }
+    </style>
+    <script src="../../static/script/vue.js"></script>
+</head>
+<body>
+<div id="login_header">
+    <a href="../../index.html">
+        <img class="logo_img" alt="" src="../../static/img/logo.gif"/>
+    </a>
+</div>
+
+<div class="login_banner" id="app">
+    <div class="register_form">
+        <h1>注册尚硅谷会员</h1>
+        <form action="regist_success.html">
+            <div class="form-item">
+                <div>
+                    <label>用户名称:</label>
+                    <input type="text" placeholder="请输入用户名" v-model="username" @change="checkUsername"/>
+                </div>
+                <span class="errMess" :style="usernameErrMessStyle">{{usernameErrMess}}</span>
+            </div>
+            <div class="form-item">
+                <div>
+                    <label>用户密码:</label>
+                    <input type="password" placeholder="请输入密码" v-model="password" @change="checkPassword"/>
+                </div>
+                <span class="errMess" :style="passwordErrMessStyle">{{passwordErrMess}}</span>
+            </div>
+            <div class="form-item">
+                <div>
+                    <label>确认密码:</label>
+                    <input type="password" placeholder="请输入确认密码" v-model="rePassword" @change="checkRePassword"/>
+                </div>
+                <span class="errMess" :style="rePasswordErrMessStyle">{{rePasswordErrMess}}</span>
+            </div>
+            <div class="form-item">
+                <div>
+                    <label>用户邮箱:</label>
+                    <input type="text" placeholder="请输入邮箱" v-model="email" @change="checkEmail"/>
+                </div>
+                <span class="errMess" :style="emailErrMessStyle">{{emailErrMess}}</span>
+            </div>
+            <div class="form-item">
+                <div>
+                    <label>验证码:</label>
+                    <div class="verify">
+                        <input type="text" placeholder=""/>
+                        <img src="../../static/img/code.bmp" alt=""/>
+                    </div>
+                </div>
+                <span class="errMess">请输入正确的验证码</span>
+            </div>
+            <button class="btn" @click="checkRegist">注册</button>
+        </form>
+    </div>
+</div>
+<div id="bottom">
+      <span>
+        尚硅谷书城.Copyright &copy;2015
+      </span>
+</div>
+</body>
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            username: "",
+            usernameErrMess: "",
+            usernameErrMessStyle: {
+                visibility: "hidden",
+                color: "red"
+            },
+            password: "",
+            passwordErrMess: "",
+            passwordErrMessStyle: {
+                visibility: "hidden",
+                color: "red"
+            },
+            rePassword: "",
+            rePasswordErrMess: "",
+            rePasswordErrMessStyle: {
+                visibility: "hidden",
+                color: "red"
+            },
+            email: "",
+            emailErrMess: "",
+            emailErrMessStyle: {
+                visibility: "hidden",
+                color: "red"
+            }
+
+        },
+        methods: {
+            checkUsername: function () {//验证用户名
+                console.log(this.username);
+                var usernameReg = /[a-zA-Z0-9]{6,16}/;
+                if (!usernameReg.test(this.username.trim())) {
+                    this.usernameErrMessStyle.visibility = "visible";//把隐藏的错误提示信息显示出来
+                    this.usernameErrMessStyle.color = "red";
+                    this.usernameErrMess = "用户名应为6~16位数字和字母组成";
+                    return false;
+                }
+                this.usernameErrMessStyle.visibility = "hidden";
+                // this.usernameErrMessStyle.color = "green";
+                // this.usernameErrMess = "√";
+                return true;
+            },
+            checkPassword: function () {//验证密码
+                console.log(this.password);
+                var passwordReg = /^\S{6,}$/;
+                if (!passwordReg.test(this.password.trim())) {
+                    this.passwordErrMessStyle.visibility = "visible";//把隐藏的错误提示信息显示出来
+                    this.passwordErrMessStyle.color = "red";
+                    this.passwordErrMess = "密码的长度至少为6位";
+                    return false;
+                }
+                // this.usernameErrMessStyle.visibility = "hidden";
+                this.passwordErrMessStyle.color = "green";
+                this.passwordErrMess = "√";
+                return true;
+            },
+            checkRePassword: function () {//确认密码是否一致
+                console.log(this.rePassword);
+                if (this.password.trim() != this.rePassword.trim()) {
+                    this.rePasswordErrMessStyle.visibility = "visible";//把隐藏的错误提示信息显示出来
+                    this.rePasswordErrMessStyle.color = "red";
+                    this.rePasswordErrMess = "两次输入的密码不一致";
+                    return false;
+                }
+
+                // this.usernameErrMessStyle.visibility = "hidden";
+                this.rePasswordErrMessStyle.color = "green";
+                this.rePasswordErrMess = "√";
+                return true;
+            },
+            checkEmail: function () {//验证邮箱
+                console.log(this.email);
+                var emailReg = /^[a-zA-Z0-9_\.-]+@([a-zA-Z0-9-]+[\.]{1})+[a-zA-Z]+$/;
+                if (!emailReg.test(this.email.trim())) {
+                    this.emailErrMessStyle.visibility = "visible";//把隐藏的错误提示信息显示出来
+                    this.emailErrMessStyle.color = "red";
+                    this.emailErrMess = "邮箱格式不合法";
+                    return false;
+                }
+                this.emailErrMessStyle.color = "green";
+                this.emailErrMess = "√";
+                return true
+
+            },
+            checkRegist: function (e) {
+                console.log("验证注册:");
+                if (!(this.checkUsername() && this.checkPassword() && this.checkRePassword() && this.checkEmail())) {
+                    console.log("验证不通过");
+                    e.preventDefault();//阻止默认的表单的提交行为
+                    return;
+                }
+                console.log("验证通过，向服务器发送数据");
+            }
+        }
+
+    })
+</script>
+
+</html>
