@@ -10,7 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>D04_XML-Tomcat</module>
-        <module>D05_Servlet</module>
+        <module>D05_Serverlet</module>
         <module>Day06_Servlet1</module>
     </modules>
 
