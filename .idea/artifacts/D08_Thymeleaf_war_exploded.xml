@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="D08_Thymeleaf:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/D08_Thymeleaf_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="D08_Thymeleaf/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="D08_Thymeleaf" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

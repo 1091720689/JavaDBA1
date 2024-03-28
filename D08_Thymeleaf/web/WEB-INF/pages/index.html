@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!--这里是否能使用th:href="@{/}"    答案是：不能
+            为什么不能？因为index.html没有通过thymeleaf转发
+            由于没有解析成功，base标签失效，下方的超链接使用的是相对路径
+
+            index.html也是需要动态获取上下文路径的！该如何处理？
+        -->
+    <base th:href="@{/}">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>首页</h1>
+    <a href="thymeleaf">ThymeleafServlet</a>
+</body>
+</html>

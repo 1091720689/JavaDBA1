@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!--1. 需要添加一个th的名称空间
+    位置：html标签的属性位置
+-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!--为当前页面所有的路径添加一个前缀：上下文路径-->
+    <base th:href="@{/}">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>admin</h1>
+    <!--取请求域内的值  ：  Thymeleaf的表达式
+        aaa下的红线没有任何影响
+        Thymeleaf表达式的值会覆盖原来的值
+            成功的将Servlet中的数据，显示在了网页上(Thymeleaf)
+    -->
+    <h2 th:text="${aaa}">这里准备放请求域中的username的值</h2>
+    <a href="" th:text="${aaa}"></a>
+    <p th:text="${aaa}"></p>
+
+    <input type="text" th:value="${aaa}"/>
+    <a th:href="${aaa}">超链接</a>
+    <img th:src="${bbb}">
+
+    展示上下文路径:为了展示而写的如下代码
+    <p th:text="@{/}"></p>
+</body>
+</html>
